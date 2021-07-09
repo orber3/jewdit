@@ -1,0 +1,28 @@
+{
+  "name": "jewdit",
+  "version": "1.0.0",
+  "description": "jewdit - mama food ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node jewdit-backend/server",
+    "server": "nodemon jewdit-backend/server",
+    "client": "npm start --prefix jewdit-front",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix jewdit-front && npm run build --prefix jewdit-front --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orber3/jewdit.git"
+  },
+  "keywords": [
+    "home-food",
+    "mama",
+    "food"
+  ],
+  "author": "Or Berman!",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orber3/jewdit/issues"
+  },
+  "homepage": "https://github.com/orber3/jewdit#readme"
+}

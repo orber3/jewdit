@@ -1,0 +1,89 @@
+// COLOR VARIABLES
+$color-primary: #dac1a2;
+$color-primary-dark: #d8a05f;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483a;
+$color-grey-dark-2: #6d5d4b;
+$color-red: #eb2f64;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+// FONT VARIABLES
+$font-primary: 'Nunito', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+// break points
+
+$bp-large: 62.5em;
+$bp-medium: 53em;
+$bp-small: 37.5em;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 40%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    font-size: 32%;
+  }
+}
+
+body {
+  // font: $font-primary !important;
+  font-family: 'Open Sans', sans-serif;
+
+  color: $color-grey-dark-2;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.container {
+  display: grid;
+  background-color: $color-grey-light-1;
+  grid-template-rows: 80vh repeat(7, minmax(45px, auto));
+
+  grid-template-columns:
+    [full-start] minmax(2rem, 1fr) [center-start] repeat(
+      6,
+      [col-start] minmax(min-content, 14rem) [col-end]
+    )
+    [center-end] minmax(6rem, 1fr) [ sidebar-start]0.75fr[sidebar-end];
+
+  // [sidebar-start]8rem[sidebar-end full-start] minmax(6rem, 1fr)
+  // [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+  // [center-end] minmax(6rem, 1fr) [full-end];
+
+  // @media only screen and (max-width: $bp-large) {
+  //   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  //   grid-template-columns:
+  //     [ full-start] minmax(6rem, 1fr)
+  //     [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+  //     [center-end] minmax(6rem, 1fr) [full-end];
+  // }
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-rows: [sidebar-start]minmax(80px, auto) [sidebar-end] 45vh repeat(
+        7,
+        minmax(45px, auto)
+      );
+
+    grid-template-columns: repeat(3, minmax(45px, auto)) [full-end];
+    display: block;
+  }
+}

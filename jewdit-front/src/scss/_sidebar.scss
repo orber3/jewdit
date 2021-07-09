@@ -1,0 +1,130 @@
+// .MuiDrawer-root {
+//   grid-column: sidebar-start/sidebar-end;
+// }
+
+.side-nav {
+  grid-column: sidebar-start/sidebar-end;
+  grid-row: 1/9;
+  background-color: #333;
+  flex: 0 0 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 11;
+  font-size: 1.4rem;
+  list-style: none;
+  overflow: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-row: 1/1 !important;
+    grid-column: 1/6;
+    // position: fixed;
+    flex-direction: row-reverse;
+    width: 100%;
+    flex: 0 0 65%;
+    justify-content: space-around;
+    align-items: center;
+
+    #side {
+      justify-content: space-between;
+      align-items: space-between;
+      align-content: space-between;
+      justify-items: space-between;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__stick {
+    position: fixed;
+    @media only screen and (max-width: $bp-medium) {
+      position: inherit;
+    }
+  }
+  &__item {
+    position: relative;
+
+    margin-bottom: 0.5rem;
+
+    @media only screen and(max-width: $bp-medium) {
+      flex: 1;
+    }
+  }
+  &__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: rgb(165, 115, 115);
+    transform: scaleY(0);
+    transition: transform 0.4s, width cubic-bezier(1, 0, 0, 1) 0.2s 0.2s,
+      background-color 0.2s;
+  }
+
+  &__item:hover::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__link,
+  &__link:visited {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    @media only screen and(max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+    @media only screen and(max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
+  }
+}
+
+.side__link {
+  text-decoration: none;
+}
+.side__link:link,
+:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.MuiDrawer-paperAnchorRight {
+  right: 2% !important;
+  width: 100%;
+}
+
+.MuiListItemText-primary {
+  font-size: 3rem !important;
+  font: $font-primary;
+}
+.MuiListItem-button {
+  position: relative;
+}
+
+.MuiListItemText-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba($color-primary-dark, 0.3) !important;
+  transition: transform 0.4s, width cubic-bezier(0, 1, 1, 1) 0.1s 0.1s !important;
+  width: 2px !important;
+  transform: scaleY(0) !important;
+}
+
+.MuiListItemText-primary:hover::before {
+  transform: scaleY(1) !important;
+  width: 100% !important;
+}

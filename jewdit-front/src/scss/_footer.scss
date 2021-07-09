@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  grid-row: 7/-1;
+  grid-column: 1 / full-end;
+  background-color: #101d2c;
+
+  padding: 2rem;
+  width: 100%;
+  transform: translateX(-12rem);
+  flex-direction: column;
+  @media only screen and (max-width: $bp-medium) {
+    transform: translateX(1px);
+    grid-column: 1/ 11;
+    grid-row: 9 / 10;
+  }
+  @media only screen and (max-width: 1500px) {
+    transform: translateX(-1px);
+  }
+  &__p {
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    align-self: center;
+  }
+}

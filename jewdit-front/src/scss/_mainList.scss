@@ -1,0 +1,97 @@
+.main-list {
+  background-color: white;
+  display: grid;
+  grid-column: 2 / 9;
+  grid-row: 2 / 5;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: 3;
+  padding: 1rem;
+  background-color: $color-grey-light-1;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-row: 3/7;
+    grid-column: 1 / full-end;
+    width: 100%;
+  }
+
+  &__list {
+    grid-column: 2/4;
+    background-color: $color-grey-light-1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: end;
+    font-weight: 700;
+    font-size: 2rem;
+    color: $color-secondary;
+    border-radius: 2px 4px black;
+    padding: 3rem;
+    background-clip: content-box; /* <---- */
+    background-color: white;
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1/-1;
+    }
+  }
+
+  &__section--head {
+    color: $color-red;
+    padding-right: 1rem;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    transition: transform 1s;
+  }
+  &__section--head:hover {
+    transform: skewY(-25deg);
+  }
+
+  &__item {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    border-bottom: 0.5px solid red;
+  }
+  &__addIcon {
+    align-self: end;
+    transform: translateY(-10rem);
+    // transform: translateX(10rem);
+    width: 2px;
+    height: 2px;
+    text-decoration: none;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+  }
+  &__item:active {
+    border: 1px solid rgb(221, 137, 137);
+  }
+  &__headline {
+  }
+  &__desc {
+    color: $color-red;
+    align-self: center;
+  }
+  &__price {
+    text-align: start;
+    align-self: end;
+  }
+  &__pic {
+    width: 12rem;
+    height: 12rem;
+
+    align-self: flex-end;
+    // transform: translate(-9rem, -4rem);
+
+    transition: all 0.7s;
+  }
+  &__pic:hover {
+    transform: scale(2);
+  }
+}
