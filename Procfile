@@ -1,1 +1,1 @@
-web: node jewit-backend/server.js
+web: node jedit-backend/server.js
